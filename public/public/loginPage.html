@@ -4,11 +4,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title> Login/SignUp</title>
+    <meta name="google-signin-client_id" content="19453088687-bp021a1m3940phnh9jsimh2mqu8u5g86.apps.googleusercontent.com">
 
-  <!-- CSS  -->
+
+    <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/loginStyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 <body>
   <div class="container white z-depth-2">
@@ -16,9 +20,12 @@
 		<li class="tab col s3"><a  onclick="myFunction()" class="white-text active" href="#login" >login</a></li>
 		<li class="tab col s3"><a class="white-text" href="#register" onclick="myFunction2()" >register</a></li>
 	</ul>
+
+
+      <div class="g-signin2 " data-onsuccess="onSignIn"></div>
 	<div id="login" class="col s12">
 		<form class="col s12">
-			<div class="form-container">
+            <div class="form-container">
 				<h3 class="teal-text">Hello</h3>
 				<div class="row">
 					<div class="input-field col s12">
