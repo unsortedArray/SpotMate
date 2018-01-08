@@ -28,8 +28,8 @@
       <a id="logo-container" href="#" class="brand-logo">SM</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Contact Us</a></li>
-        <li><a class="waves-effect navBtnCol btn-flat" href="signup" onclick="myFunction2()">Sign Up</a></li>
-        <li><a class="waves-effect navBtnCol btn-flat" href="login" onclick="myFunction()">Login</a></li>
+        <li><a class="waves-effect navBtnCol btn-flat" href="#">Sign Up</a></li>
+        <li><a class="waves-effect navBtnCol btn-flat" id="Rlogin">Login</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
         <li><a href="sass.html">Sass</a></li>
@@ -42,6 +42,8 @@
 
 
 
+
+
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -51,7 +53,7 @@
           <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
         </div>
         <div class="row center">
-          <a href="login" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
         </div>
         <br><br>
 
@@ -173,10 +175,17 @@
 
 
   <!--  Scripts-->
+
+  <!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/loginPage.js"> </script>
+  <script src ="js/authenticate.js"></script>
+  <script src="js/init_p.js"></script>
+  <script type="text/javascript" src="js/firebaseInit.js"></script>
 
   </body>
 </html>
+
+
+
