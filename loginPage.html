@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Login/SignUp</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/loginStyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <div class="container white z-depth-2">
+	<ul class="tabs teal tabs-fixed-width">
+		<li class="tab col s3"><a  onclick="myFunction()" class="white-text active" href="#login" >login</a></li>
+		<li class="tab col s3"><a class="white-text" href="#register" onclick="myFunction2()" >register</a></li>
+	</ul>
+	<div id="login" class="col s12">
+		<form class="col s12">
+			<div class="form-container">
+				<h3 class="teal-text">Hello</h3>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email_login" type="text" class="validate">
+						<label for="email_login">Email</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password" type="password" class="validate">
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<br>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" name="action">Connect</button>
+					<br>
+					<br>
+					<a href="">Forgotten password?</a>
+				</center>
+			</div>
+		</form>
+	</div>
+	<div id="register" style="display:none" class="col s12">
+		<form class="col s12">
+			<div class="form-container">
+				<h3 class="teal-text">Welcome</h3>
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="first_name" type="text" class="validate">
+						<label for="first_name">First Name</label>
+					</div>
+					<div class="input-field col s6">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Last Name</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email_register" type="email" class="validate">
+						<label for="email_register">Email</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="email-confirm" type="email" class="validate">
+						<label for="email-confirm">Email Confirmation</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password" type="password" class="validate">
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="password-confirm" type="password" class="validate">
+						<label for="password-confirm">Password Confirmation</label>
+					</div>
+				</div>
+				<center>
+					<button class="btn waves-effect waves-light teal" type="submit" name="action" onclick="registerUser();">Submit</button>
+				</center>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script type="text/javascript" src="js/firebaseInit.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/loginPage.js"></script>
+<script type="text/javascript" src="js/sample.js"></script>
+</body>
+
+
+</html>

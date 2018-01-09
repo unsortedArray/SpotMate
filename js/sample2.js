@@ -1,0 +1,1 @@
+var database = firebase.database();
