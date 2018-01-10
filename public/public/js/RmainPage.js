@@ -5,17 +5,93 @@ window.onload = function (ev) {
     var out = document.getElementById("out");
 
     console.log(out);
+    var Btn = document.getElementById("Btn");
+    Btn.onclick = addFriend;
     out.onclick= SignOut;
+    console.log(user)
+    // if(!user){
+    //     window.location.href="localhost:8000/index.html";
+    // }
 
-    if(user)
-    {
-        console.log(user);
-    }
 
+};
+var database=firebase.database();
+database.ref("tasks").on('value', function(snapshot){
+        console.log("cHANGE HAS OCCURED", snapshot.key, snapshot.val());
+    }); 
+$(document).ready(function(){
+    console.log("Trigg");
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
 
+function addTasks()
+{
+    var task_name=$('#task_name').val();
+    var description=$('#description').val();
+    var location=$('#location').val();
+    var range=$('#range').val();
+    //get email of current user somehow
+    var email=firebase.auth().currentUser.email;
+    email = email.substring(0,email.lastIndexOf("@"))
+    email = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
+    console.log(email);
+    insertIntoDatabase(task_name, description,location,range,email);
 }
-function  SignOut() {
+function insertIntoDatabase(task_name, description,location,range,email)
+{
+    var taskObject={
+        task_name: task_name, 
+        description: description,
+        location:location,
+        range:range
+    };
+    // database.ref('users/'+email+'/task_list_key').once('value',function(snapshot){
+    //  var task_list_key=snapshot.val();
 
+    // });
+    insertIntoTask(taskObject,email);
+}
+function insertIntoTask(taskObject,email){
+    var db_ref=database.ref('tasks/'+email).push().key;
+    database.ref('tasks/'+email+"/"+db_ref).set(taskObject).then(function(){
+        console.log('inserted task');
+    }).catch(function(error){
+        console.log(error);
+    });
+}
+function addFriend(){
+    
+    var email=firebase.auth().currentUser.email;
+    email = email.substring(0,email.lastIndexOf("@"))
+    email = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
+    var name=$('#f_name').val();
+    var f_email=$('#email_login').val();
+    //query if email exist in database
+    database.ref('users/'+f_email).once('value',function(snapshot){
+    console.log('in function');
+    var val=snapshot.exists();
+    console.log(val);
+    if(val){
+        console.log('friend exist in db of user');
+        var friendObject={
+            f_email:f_email
+        }
+        var db_ref=database.ref('friends/'+email).push().key;
+        database.ref('friends/'+email+"/"+db_ref).set(friendObject).then(function(){
+        console.log('inserted friend');
+        }).catch(function(error){
+            console.log(error);
+        });
+    }
+    else{
+            console.log('friend entered not present in database list');
+    }
+    })
+    console.log('ghusa in addFriend');
+}
+
+function  SignOut() {
 
     console.log('HEy');
     firebase.auth().signOut().then(function() {
@@ -31,6 +107,21 @@ function showMessage(){
     Materialize.toast('I am a toast!', 4000)
     console.log('hello2');
     return;
-
-
 }
+firebase.auth().onAuthStateChanged( function (user) {
+        {
+            user = firebase.auth().currentUser;
+
+            if(user)
+            {
+                console.log(user);
+
+            }
+            else{
+                window.location.href="localhost:8000";
+            }
+
+        }});
+
+
+
