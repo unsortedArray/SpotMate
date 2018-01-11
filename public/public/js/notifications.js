@@ -51,7 +51,7 @@ function generateNotification(user,friend,task,location){
 
 }
 // function check(){
-// 	var ref=firebase.database().ref('tasks/raghavchawla711').once('value',function(snapshot){
+// 	var ref=firebase.database().ref('tasks/*').once('value',function(snapshot){
 // 		//console.log(snapshot);
 // 		console.log('key and value');
 // 		snapshot.forEach(function(childSnapshot){
