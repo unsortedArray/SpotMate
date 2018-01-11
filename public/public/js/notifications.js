@@ -11,7 +11,7 @@ ref.on('child_changed', function(data) {
   	snapshot.forEach(function(childSnapshot){
   		//console.log("childSnapshot "+childSnapshot);
   		var friend_email=childSnapshot.val().f_email;
-  		console.log("betichod"+friend_email);
+  		console.log(+friend_email);
   		var friend_ref=firebase.database().ref('tasks/'+friend_email).once('value',function(snap){
   			//console.log("snap "+snap);
   			snap.forEach(function(childSnap){
@@ -21,11 +21,11 @@ ref.on('child_changed', function(data) {
   				//assume range 0
   				var isPossible=(task_loc==friend_loc);
   				if(isPossible){
-  					console.log("le aaunga bhai dont worry");
+  					console.log("location matched");
   					var u;
   					firebase.database().ref('users/'+friend_email).once('value',function(sap){
   						u=sap.val().name;
-  						console.log("maa chudali "+ u)
+  						console.log( u)
 
   					})
   					var friend;
@@ -39,7 +39,7 @@ ref.on('child_changed', function(data) {
 
   				}
   				else{
-  					console.log("sorry bhai cant help");
+  					console.log("location did not match");
   				}
   			})
   		})
@@ -47,8 +47,8 @@ ref.on('child_changed', function(data) {
   })
 });
 function generateNotification(user,friend,task,location){
-	console.log('aa gayi bijli');
-	
+	console.log('notification generated');
+
 }
 // function check(){
 // 	var ref=firebase.database().ref('tasks/raghavchawla711').once('value',function(snapshot){
