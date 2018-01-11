@@ -15,6 +15,7 @@ function googleSign2() {
   .then(function() {
     // Existing and future Auth states are now persisted in the current
     // session only. Closing the window would clear any existing state even
+
     // if a user forgets to sign out.
     // ...
     // New sign-in will be persisted with session persistence.
@@ -26,11 +27,11 @@ function googleSign2() {
             var token = result.credential.accessToken;
             // The signed-in user info.
             user = result;
-           // console.log(user);
+           //console.log(user);
         if(user) {
 
             window.location.href ="http://localhost:8000/mainPage.html";
-
+            console.log(user);
         }
 
         // ...

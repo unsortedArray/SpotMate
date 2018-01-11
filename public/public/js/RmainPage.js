@@ -8,7 +8,7 @@ window.onload = function (ev) {
     var Btn = document.getElementById("Btn");
     Btn.onclick = addFriend;
     out.onclick= SignOut;
-    console.log(user)
+    //console.log(user)
     // if(!user){
     //     window.location.href="localhost:8000/index.html";
     // }
