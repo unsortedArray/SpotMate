@@ -11,6 +11,7 @@ window.onload = function (ev) {
 }
 function googleSign2() {
 
+  console.log("fuck off");
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(function() {
     // Existing and future Auth states are now persisted in the current
@@ -26,7 +27,7 @@ function googleSign2() {
             var token = result.credential.accessToken;
             // The signed-in user info.
             user = result;
-           // console.log(user);
+            console.log(user);
         if(user) {
 
             window.location.href ="http://localhost:8000/mainPage.html";
@@ -52,9 +53,5 @@ function googleSign2() {
     var errorMessage = error.message;
   });
 
-      
+
 }
-
-
-
-

@@ -1,5 +1,4 @@
 var provider = new firebase.auth.GoogleAuthProvider();
-
 window.onload = function (ev) {
     showMessage();
     var out = document.getElementById("out");
@@ -8,7 +7,7 @@ window.onload = function (ev) {
     var Btn = document.getElementById("Btn");
     Btn.onclick = addFriend;
     out.onclick= SignOut;
-    console.log(user)
+    //console.log(user)
     // if(!user){
     //     window.location.href="localhost:8000/index.html";
     // }
@@ -18,7 +17,7 @@ window.onload = function (ev) {
 var database=firebase.database();
 database.ref("tasks").on('value', function(snapshot){
         console.log("cHANGE HAS OCCURED", snapshot.key, snapshot.val());
-    }); 
+    });
 $(document).ready(function(){
     console.log("Trigg");
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
@@ -41,7 +40,7 @@ function addTasks()
 function insertIntoDatabase(task_name, description,location,range,email)
 {
     var taskObject={
-        task_name: task_name, 
+        task_name: task_name,
         description: description,
         location:location,
         range:range
@@ -61,7 +60,7 @@ function insertIntoTask(taskObject,email){
     });
 }
 function addFriend(){
-    
+
     var email=firebase.auth().currentUser.email;
     email = email.substring(0,email.lastIndexOf("@"))
     email = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
@@ -114,14 +113,16 @@ firebase.auth().onAuthStateChanged( function (user) {
 
             if(user)
             {
-                console.log(user);
-
+              //if (typeof(Storage) !== "undefined") {
+                localStorage.mail = user.email;
+              //}
+              // else {
+              //   console.log("No browser support")
+              // }
+                console.log(user.email);
             }
             else{
                 window.location.href="localhost:8000";
             }
 
         }});
-
-
-
