@@ -87,7 +87,7 @@ function addTasks()
 function insertIntoDatabase(task_name, description,location,range,email)
 {
     var taskObject={
-        task_name: task_name, 
+        task_name: task_name,
         description: description,
         location:location,
         range:range
@@ -157,6 +157,4 @@ function showMessage(){
     console.log('hello2');
     return;
 }
-
-
 

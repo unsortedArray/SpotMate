@@ -12,7 +12,10 @@ app.get('/',function (req,res) {
 app.get('/login',function (req,res) {
     res.sendFile(__dirname + '/public/public/loginPage.html');
 })
-
+// yash
+// app.get('/login/friends',function(req,res)){
+//   res.sendFile(__dirname + '/public/public/friend.html');
+// }
 app.get('/signup',function (req,res) {
     res.sendFile(__dirname + '/public/public/SignUpPage.html');
 });
