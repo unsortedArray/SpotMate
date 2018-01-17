@@ -1,0 +1,32 @@
+[debug] [2018-01-17T18:07:45.545Z] ----------------------------------------------------------------------
+[debug] [2018-01-17T18:07:45.548Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\I_am_\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-01-17T18:07:45.548Z] CLI Version:   3.16.0
+[debug] [2018-01-17T18:07:45.548Z] Platform:      win32
+[debug] [2018-01-17T18:07:45.548Z] Node Version:  v8.9.4
+[debug] [2018-01-17T18:07:45.549Z] Time:          Wed Jan 17 2018 23:37:45 GMT+0530 (India Standard Time)
+[debug] [2018-01-17T18:07:45.549Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-17T18:07:45.559Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-17T18:07:45.559Z] > authorizing via signed-in user
+[debug] [2018-01-17T18:07:45.561Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spotmate-3333  
+  
+ Wed Jan 17 2018 23:37:45 GMT+0530 (India Standard Time)
+[debug] [2018-01-17T18:07:52.617Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-17T18:07:52.622Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spotmate-3333/tokens  
+  
+ Wed Jan 17 2018 23:37:52 GMT+0530 (India Standard Time)
+[debug] [2018-01-17T18:07:54.353Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\I_am_\Desktop\LogIN'...
+[info] 
+[debug] [2018-01-17T18:07:54.372Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spotmate-3333  
+  
+ Wed Jan 17 2018 23:37:54 GMT+0530 (India Standard Time)
+[debug] [2018-01-17T18:07:59.970Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-17T18:07:59.978Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/40092027524/clients/_:getWebAppConfig  
+  
+ Wed Jan 17 2018 23:37:59 GMT+0530 (India Standard Time)
+[debug] [2018-01-17T18:08:01.675Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
