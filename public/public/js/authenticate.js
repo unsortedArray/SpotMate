@@ -11,7 +11,7 @@ window.onload = function (ev) {
 }
 function googleSign2() {
 
-  console.log("fuck off");
+  //console.log("fuck off");
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(function() {
     // Existing and future Auth states are now persisted in the current
@@ -23,7 +23,7 @@ function googleSign2() {
     //return firebase.auth().signInWithEmailAndPassword(email, password);
       console.log("Hey");
     firebase.auth().signInWithPopup(provider).then(function (result) {
-            console.log("tatti");
+            //console.log("tatti");
             // This gives you a Google Access Token. You can use it to access the Google API.
             var token = result.credential.accessToken;
             // The signed-in user info.
