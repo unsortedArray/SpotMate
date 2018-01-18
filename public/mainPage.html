@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav id="navCol" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="mainPage.html#navCol" class="brand-logo">SpotMate</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="www.google.com">Profile</a></li>
+        <li><a href="friend.html">Friends</a></li>
+        <li><a href="mainPage.html#foot">Contact Us</a></li>
+        <li><a href="#" id="out">SignOut</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="sass.html">Profile</a></li>
+        <li><a href="badges.html">Friends</a></li>
+        <li><a href="collapsible.html">Contact Us</a></li>
+
+      </ul>
+      <a  data-activates="nav-mobile" class="button-collapse" style="color:white"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+    <div class="row" id = "batan">
+      <div class="col l6 s12">
+        <div class="row">
+          <div class="btn btn-large push-l8 push-s1 col s10 l3 modal-trigger" href="#modal1" >Add Tasks</div>
+        </div>
+      </div>
+      <div class="col l6 s12">
+      <div class="btn btn-large push-l1 push-s1 col s10 l3 modal-trigger"  href="#modal2">Add Friend</div>
+      </div>
+        </div>
+      </div>
+    </div>
+    <h1 style = "text-align : center">Task List</h1>
+    <div class = "row">
+      <div class = "col offset-s2 s8 z-depth-2">
+        <h5 style = "text-align : center">Your tasks</h5>
+        <hr>
+          <table class="bordered centered"><thead><tr><th>Task Name</th><th>Mark as Done</th></tr></thead>
+            <tbody id = "task_list">
+            </tdoby>
+          </table>
+        </div>
+  </div>
+
+
+  <div class="row">
+    <div class=" modal-trigger" href="#modal3" ></div>
+  </div>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form class="col s12">
+        <div class="form-container">
+          <h4 class="teal-text center">Enter Task Details</h4>
+
+          <div class="">
+            <div class="input-field col s12">
+              <input id="task_name" type="text">
+              <label for="task_name">Task Name</label>
+            </div>
+          </div>
+          <div class="">
+            <div class="input-field col s12">
+              <input id="location" type="text" class="validate">
+              <label for="location">Location</label>
+            </div>
+          </div>
+          <div class="">
+            <div class="input-field col s12">
+              <input id="description" type="text" class="validate">
+              <label for="description">Description</label>
+            </div>
+          </div>
+          <div class="">
+            <div class="input-field col s12">
+              <input id="range" type="text" class="validate">
+              <label for="range">Range</label>
+            </div>
+          </div>
+          <br>
+          <center>
+
+            <br>
+          </center>
+        </div>
+      </form>
+      <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="addTasks()">Submit</button>
+    </div>
+  </div>
+
+
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <form class="col s12">
+        <div class="form-container">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="f_name" type="text">
+              <label for="text">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email_login" type="text" class="validate">
+              <label for="email_login">Email</label>
+            </div>
+          </div>
+          <br>
+          <center>
+
+            <br>
+          </center>
+        </div>
+      </form>
+        <button class="btn waves-effect waves-light teal modal-action modal-close" id="Btn" name="action" >Submit</button>
+    </div>
+  </div>
+
+
+  <div id="modal3" class="modal" >
+    <div class="modal-content">
+      <h4>Welcome</h4>
+      <p>  <span id="userName"></span> welcome to the app.
+
+
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  <footer id="foot" class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div  class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+       <a class="black-text text-lighten-3" href="mainPage.html#navCol">SpotMate</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script type="text/javascript" src="js/firebaseInit.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <!-- <script type="text/javascript" src="js/sample.js"></script> -->
+  <script src="js/init_s.js"></script>
+  <!-- <script src="js/mainPage.js"></script> -->
+  <!-- <script type="text/javascript"  src="./js/authenticate.js"></script> -->
+
+  <!-- <script type="text/javascript" src="js/test.js"></script> -->
+   <script src="js/RmainPage.js"></script>
+   <script src="js/notifications.js"></script>
+   <script src="js/task_print.js"></script>
+   <!-- <script type="text/javascript" src="js/sample.js"></script>
+  --> </body>
+</html>
