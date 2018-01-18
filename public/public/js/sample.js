@@ -8,7 +8,7 @@ function registerUser()
 	var email=$('#email_register').val();
 	insertIntoDatabase(name, email);
 }
-function insertIntoDatabase(name, email)
+function insertIntoDatabase1(name, email)
 {
 	var userObject={
 		name: name, 
@@ -22,3 +22,4 @@ function insertIntoDatabase(name, email)
 		console.log(err);
 	});
 }
+insertIntoDatabase1('raghav','testName');

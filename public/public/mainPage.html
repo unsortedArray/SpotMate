@@ -18,7 +18,7 @@
         <li><a href="#">Profile</a></li>
         <li><a href="#">Friends</a></li>
         <li><a href="#">Contact Us</a></li>
-        <li><a href="#" id="out">Bhag Betichod</a></li>
+        <li><a href="#" id="out">Sign Out</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
         <li><a href="sass.html">Profile</a></li>
@@ -52,7 +52,7 @@
         <div class="row">
           <div class="btn btn-large push-l8 push-s1 col s10 l3 modal-trigger" href="#modal1" >Add Tasks</div>
         </div>
-      </div> 
+      </div>
       <div class="col l6 s12">
       <div class="btn btn-large push-l1 push-s1 col s10 l3 modal-trigger"  href="#modal2">Add Friend</div>
       </div>
@@ -107,7 +107,7 @@
       <form class="col s12">
         <div class="form-container">
           <h4 class="teal-text center">Enter Task Details</h4>
-          
+
           <div class="">
             <div class="input-field col s12">
               <input id="task_name" type="text">
@@ -134,12 +134,13 @@
           </div>
           <br>
           <center>
-            <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="addTasks()">Submit</button>
+
             <br>
             <br>
           </center>
         </div>
       </form>
+      <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="addTasks()">Submit</button>
     </div>
   </div>
 
@@ -163,12 +164,13 @@
           </div>
           <br>
           <center>
-            <button class="btn waves-effect waves-light teal modal-action modal-close" type="submit" name="action" onclick="addFriend('raghav')">Submit</button>
+
             <br>
             <br>
           </center>
         </div>
       </form>
+        <button class="btn waves-effect waves-light teal modal-action modal-close" id="Btn" name="action" >Submit</button>
     </div>
   </div>
 
@@ -230,7 +232,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-       <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a> 
+       <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
   </footer>
@@ -242,12 +244,25 @@
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script type="text/javascript" src="js/firebaseInit.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  
+
   <!-- <script type="text/javascript" src="js/sample.js"></script> -->
-  <!-- <script src="js/init_s.js"></script> -->
-  <script src="js/mainPage.js"></script>
-  <script type="text/javascript"  src="./js/authenticate.js"></script>
-  <script type="text/javascript"  src="./js/RmainPage.js"></script>
+  <script src="js/init_s.js"></script>
+  <!-- <script src="js/mainPage.js"></script> -->
+  <!-- <script type="text/javascript"  src="./js/authenticate.js"></script> -->
+
   <!-- <script type="text/javascript" src="js/test.js"></script> -->
-  </body>
+   <script src="js/RmainPage.js"></script>
+   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        emailjs.init("user_jfwCYuRkLIMFRtyIDLI7U");
+     })();
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLrMKr46gbli-HEQ_EIXQpoZk4ZrJDzH4">
+    </script>
+   <script src="js/notifications.js"></script>
+
+   <!-- <script type="text/javascript" src="js/sample.js"></script>
+  --> </body>
 </html>
