@@ -10,6 +10,7 @@ initApp = function() {
             // User is signed in.
             var displayName = user.displayName;
             email = user.email;
+            showMessage();
             var emailVerified = user.emailVerified;
             var photoURL = user.photoURL;
             var uid = user.uid;
@@ -93,6 +94,7 @@ function addFirstTimeUser(){
 
 function addTasks()
 {
+<<<<<<< HEAD
     var task_name=$('#task_name').val();
     var description=$('#description').val();
     var location=$('#location').val();
@@ -104,6 +106,52 @@ function addTasks()
     console.log(new_email);
     insertIntoDatabase(task_name, description,location,range,new_email);
     print_latest_task(task_name , db_ref);
+=======
+    
+    var check=taskValidity();
+    if(check==1){
+        var task_name=$('#task_name').val();
+        var description=$('#description').val();
+        var location=$('#location').val();
+        var range=$('#range').val();
+
+        //get email of current user somehow
+        var email=firebase.auth().currentUser.email;
+        var new_email = email.substring(0,email.lastIndexOf("@"))
+        new_email = new_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
+        console.log(new_email);
+        insertIntoDatabase(task_name, description,location,range,new_email);
+    }else{
+        //toast for task not inserted
+         Materialize.toast('Task not inserted', 4000);
+    }
+    
+}
+function taskValidity(){
+    var check=1;
+    var task_name_ele=document.getElementById('task_name');
+    var description_ele=document.getElementById('description');
+    var location_ele=document.getElementById('location');
+    var range_ele=document.getElementById('range');
+    if(!task_name_ele.checkValidity()){
+        check=0;
+        Materialize.toast('Invalid Task Name', 4000);
+    }
+    if(!description_ele.checkValidity()){
+        check=0;
+        Materialize.toast('Invalid Description', 4000);
+    }
+    if(!location_ele.checkValidity()){
+        check=0;
+        Materialize.toast('Invalid Location', 4000);
+    }
+    if(!range_ele.checkValidity()){
+        check=0;
+        Materialize.toast('Invalid Range ', 4000);
+    }
+    return check;
+
+>>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
 }
 function insertIntoDatabase(task_name, description,location,range,email)
 {
@@ -123,63 +171,92 @@ function insertIntoTask(taskObject,email){
     db_ref=database.ref('tasks/'+email).push().key;
     database.ref('tasks/'+email+"/"+db_ref).set(taskObject).then(function(){
         console.log('inserted task');
+<<<<<<< HEAD
+=======
+        //toast for task inserted
+         Materialize.toast('Task inserted successfully!!', 4000)
+>>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
     }).catch(function(error){
         console.log(error);
+        Materialize.toast('Task not inserted due to error!!', 4000)
     });
 }
 function addFriend(){
-    // var new_email = email.substring(0,email.lastIndexOf("@"))
-    // new_email = new_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
-    var new_email = email;
-    var name=$('#f_name').val();
-    var fr_email=$('#email_login').val();
-    var new_fr_email = fr_email.substring(0,fr_email.lastIndexOf("@"))
-    new_fr_email = new_fr_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
-    console.log(new_fr_email);
-    //query if email exist in database
-    database.ref('users/'+new_fr_email).once('value',function(snapshot){
-    console.log('in function');
-    var val=snapshot.exists();
-    console.log(val);
-    if(val){
-        console.log('friend exist in db of user');
-        var friendObject={
-            f_email:new_fr_email
+
+    var check=friendValidity();
+    if(check==1){
+        var email=firebase.auth().currentUser.email;
+        var new_email = email.substring(0,email.lastIndexOf("@"))
+        new_email = new_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
+        console.log(new_email);
+        var name=$('#f_name').val();
+        var fr_email=$('#email_login').val();
+        var new_fr_email = fr_email.substring(0,fr_email.lastIndexOf("@"))
+        new_fr_email = new_fr_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
+        console.log(new_fr_email);
+        //query if email exist in database
+        database.ref('users/'+new_fr_email).once('value',function(snapshot){
+        console.log('in function');
+        var val=snapshot.exists();
+        console.log(val);
+        if(val){
+            console.log('friend exist in db ');
+            var friendObject={
+                f_email:new_fr_email
+            }
+            var db_ref=database.ref('friends/'+new_email).push().key;
+            database.ref('friends/'+new_email+"/"+db_ref).set(friendObject).then(function(){
+            console.log('inserted friend');
+            Materialize.toast("Friend Inserted",4000);
+            }).catch(function(error){
+                console.log(error);
+            });
         }
-        var db_ref=database.ref('friends/'+new_email).push().key;
-        database.ref('friends/'+new_email+"/"+db_ref).set(friendObject).then(function(){
-        console.log('inserted friend');
-        }).catch(function(error){
-            console.log(error);
-        });
+        else{
+                console.log('friend entered not registered');
+                Materialize.toast("friend entered not registered",4000);
+        }
+        })
+        console.log('ghusa in addFriend');
     }
     else{
-            console.log('friend entered not present in database list');
+        Materialize.toast("Friend not inserted",4000);
     }
-    })
-    console.log('ghusa in addFriend');
+    
+}
+function friendValidity(){
+    var check=1;
+    var name_ele=document.getElementById("f_name");
+    var email_ele=document.getElementById("email_login");
+    if(!name_ele.checkValidity()){
+        check=0;
+        Materialize.toast('Invalid Friend Name', 4000);
+    }
+    if(!email_ele.checkValidity()){
+        check=0;
+        Materialize.toast('Invalid Email', 4000);
+    }
+    return check;
+
 }
 
 function  SignOut() {
 
     console.log('HEy');
     firebase.auth().signOut().then(function() {
-        window.location.href = 'index.html';
+        window.location = 'index.html';
     }).catch(function(error) {
-        console.log(error);
+        // An error happened.
     });
 }
 
 function showMessage(){
 
-
-    Materialize.toast('Welcome', 4000)
+    var name=firebase.auth().currentUser.displayName;
+    Materialize.toast('Welcome '+name+" !", 4000)
     console.log('hello2');
     return;
 }
-
-
-
 
 function yourData(data)
 {
@@ -215,7 +292,7 @@ function printTable(object,key)
             <td>\
               <a class="friends-name" href="#">'+object.val().task_name+'</a></td>\
               <td>\
-                <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="medium material-icons">clear</i></button>\
+                <button class="tooltipped btn-floating btn-large waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
               </td>\
             </tr>';
     }
