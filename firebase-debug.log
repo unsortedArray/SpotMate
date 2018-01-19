@@ -1,0 +1,41 @@
+[debug] [2018-01-19T13:37:04.077Z] ----------------------------------------------------------------------
+[debug] [2018-01-19T13:37:04.077Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\RAGHAV\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-01-19T13:37:04.077Z] CLI Version:   3.16.0
+[debug] [2018-01-19T13:37:04.077Z] Platform:      win32
+[debug] [2018-01-19T13:37:04.077Z] Node Version:  v6.11.2
+[debug] [2018-01-19T13:37:04.077Z] Time:          Fri Jan 19 2018 19:07:04 GMT+0530 (India Standard Time)
+[debug] [2018-01-19T13:37:04.077Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-01-19T13:37:04.093Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-01-19T13:37:04.093Z] > authorizing via signed-in user
+[debug] [2018-01-19T13:37:04.109Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-01-19T13:37:04.109Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/nyDTJDjHg45cnChPSDckSvvnMKST0P2utiwfgh14YvI',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Fri Jan 19 2018 19:07:04 GMT+0530 (India Standard Time)
+[debug] [2018-01-19T13:37:04.718Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T13:37:04.762Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/spotmate-3333  
+  
+ Fri Jan 19 2018 19:07:04 GMT+0530 (India Standard Time)
+[debug] [2018-01-19T13:37:07.521Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T13:37:07.521Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/spotmate-3333/tokens  
+  
+ Fri Jan 19 2018 19:07:07 GMT+0530 (India Standard Time)
+[debug] [2018-01-19T13:37:09.613Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\RAGHAV\Desktop\develop\SpotMate\SpotMate'...
+[info] 
+[debug] [2018-01-19T13:37:09.613Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/spotmate-3333  
+  
+ Fri Jan 19 2018 19:07:09 GMT+0530 (India Standard Time)
+[debug] [2018-01-19T13:37:11.807Z] <<< HTTP RESPONSE 200
+[debug] [2018-01-19T13:37:11.807Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/40092027524/clients/_:getWebAppConfig  
+  
+ Fri Jan 19 2018 19:07:11 GMT+0530 (India Standard Time)
+[debug] [2018-01-19T13:37:13.533Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
