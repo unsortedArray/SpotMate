@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
 </head>
 <body>
   <nav id="navCol" role="navigation">
@@ -17,13 +19,13 @@
        <!-- give link to mainPage -->
       <ul class="right hide-on-med-and-down">
         <li><a href="#">AboutUs</a></li>
-        <li><a class="waves-effect navBtnCol btn-flat" id="#">LogOut</a></li>
+        <li><a class="waves-effect navBtnCol " id="out">LogOut</a></li>
         <li><a href ="#">Profile</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="sass.html">AboutUs</a></li>
-        <li><a href="badges.html">LogOut</a></li>
-        <li><a href="collapsible.html">Profile</a></li>
+        <li><a href="#friend_foot">AboutUs</a></li>
+        <li><a id="out1">LogOut</a></li>
+        <li><a href="#">Profile</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse" style="color:white"><i class="material-icons">menu</i></a>
     </div>
@@ -42,7 +44,44 @@
         </table>
       </div>
 </div>
-<div class = "preloader-background ">
+
+  <footer id="friend_foot" class="page-footer  footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s6">
+          <h5 class="white-text">SpotMate</h5>
+          <p class="grey-text text-lighten-4">We are a team of four rookie developers. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l6 s6">
+          <h5 class="white-text">Know Us</h5>
+          <ul>
+            <li><a class="white-text" href="https://github.com/Unsorted-array">Ritesh Ranjan</a></li>
+            <li><a class="white-text" href="https://github.com/pankajsondhi44">Pankaj Sondhi</a></li>
+            <li><a class="white-text" href="https://github.com/yashgulani">Yash Gulani</a></li>
+            <li><a class="white-text" href="https://github.com/raghavchawla7">Raghav Chawla</a></li>
+          </ul>
+        </div>
+        <!--<div  class="col l3 s12">-->
+          <!--<h5 class="white-text">Social Links<h5>-->
+          <!--<ul>-->
+            <!--<li><a class="white-text" href="">Link 1</a></li>-->
+            <!--<li><a class="white-text" href="">Link 2</a></li>-->
+            <!--<li><a class="white-text" href="">Link 3</a></li>-->
+            <!--<li><a class="white-text" href="">Link 4</a></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <a class="white-text text-lighten-3" href="mainPage.html#navCol">SpotMate</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class = "preloader-background ">
 <div class="preloader-wrapper big active">
       <div class="spinner-layer spinner-blue">
         <div class="circle-clipper left">
@@ -84,7 +123,6 @@
         </div>
       </div>
     </div>
-
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <!-- <script> -->
 
@@ -92,6 +130,9 @@
 <script type="text/javascript" src="js/firebaseInit.js"></script>
 <script src="js/materialize.js"></script>
 <script src = "js/friends.js"></script>
+    <script>
+        $(".button-collapse").sideNav();
+    </script>
 
 </body>
 </html>

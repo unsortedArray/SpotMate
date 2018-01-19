@@ -58,6 +58,12 @@ initApp = function() {
 };
 window.addEventListener('load', function() {
     initApp() ;
+    var out = document.getElementById('out');
+    var out1 = document.getElementById('out1');
+
+
+    out.onclick=SignOut ;
+    out1.onclick=SignOut ;
 
 
 });
@@ -103,7 +109,7 @@ function printTable(object,mail)
             <td>\
               <a class="friends-name" href="#">'+object.name+'</a></td>\
               <td>\
-                <button class="tooltipped btn-floating btn-large waves-effect waves-light teal" onclick = "removeFriend(\''+mail+'\')" ><i class="large material-icons">clear</i></button>\
+                <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeFriend(\''+mail+'\')" ><i class="medium material-icons">clear</i></button>\
               </td>\
             </tr>';
         }
@@ -121,4 +127,14 @@ function removeFriend(mail)
   firebase.database().ref("friends/" + email + "/" + map[mail]).remove();
   var x = document.getElementById(mail);
   x.style.display = "none";
+}
+
+function  SignOut() {
+
+    console.log('HEy');
+    firebase.auth().signOut().then(function() {
+        window.location.href = 'index.html';
+    }).catch(function(error) {
+        console.log(error);
+    });
 }

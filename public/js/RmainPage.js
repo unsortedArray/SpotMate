@@ -166,7 +166,7 @@ function  SignOut() {
 
     console.log('HEy');
     firebase.auth().signOut().then(function() {
-        window.location.href = '';
+        window.location.href = 'index.html';
     }).catch(function(error) {
         console.log(error);
     });
@@ -201,7 +201,7 @@ function printTable(object,key)
             <td>\
               <a class="friends-name" href="#">'+object.val().task_name+'</a></td>\
               <td>\
-                <button class="tooltipped btn-floating btn-large waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
+                <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="medium material-icons">clear</i></button>\
               </td>\
             </tr>';
     }
