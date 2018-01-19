@@ -1,7 +1,8 @@
 //console.log('print ' + localStorage.mail);
 
-var email = ''
+var email = '';
 var count =0;
+var dbref = '';
 
 initApp = function() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -21,7 +22,7 @@ initApp = function() {
                 email = user.email.substring(0,email.lastIndexOf("@"))
                 email = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
                 retrieve();
-
+                // count=0; // random key latest task insert k liye
                 $('.modal').modal();
                // console.log(email);
                 // console.log( JSON.stringify({
@@ -102,8 +103,7 @@ function addTasks()
     new_email = new_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
     console.log(new_email);
     insertIntoDatabase(task_name, description,location,range,new_email);
-    retrieve();
-
+    print_latest_task(task_name , db_ref);
 }
 function insertIntoDatabase(task_name, description,location,range,email)
 {
@@ -120,7 +120,7 @@ function insertIntoDatabase(task_name, description,location,range,email)
     insertIntoTask(taskObject,email);
 }
 function insertIntoTask(taskObject,email){
-    var db_ref=database.ref('tasks/'+email).push().key;
+    db_ref=database.ref('tasks/'+email).push().key;
     database.ref('tasks/'+email+"/"+db_ref).set(taskObject).then(function(){
         console.log('inserted task');
 
@@ -189,10 +189,26 @@ function yourData(data)
     printTable(data,data.key);
     //console.log(use);
 }
+function print_latest_task(task_name,key)
+{
+  var task_row = $('#task_list');
+  var data = "";
+  {
+      data += '<tr id = "'+key+'">\
+          <td>\
+            <a class="friends-name" href="#">'+task_name+'</a></td>\
+            <td>\
+              <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="medium material-icons">clear</i></button>\
+            </td>\
+          </tr>';
+  }
+  console.log(data);
+  task_row.append(data);
+}
 function printTable(object,key)
 {
     var task_row = $('#task_list');
-    data = "";
+    var data = "";
     //console.log(names + names.length);
     //for(var i = 0;i<names.length;i++)
     {
@@ -206,8 +222,8 @@ function printTable(object,key)
             </tr>';
     }
     console.log(data);
-    count++;
-    console.log(count);
+  //  count++;
+    //console.log(count);
     task_row.append(data);
     // $('.preloader-background').fadeOut('slow');
     // $('.preloader-wrapper')

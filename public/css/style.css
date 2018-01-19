@@ -5,6 +5,9 @@
  *
  * Made By MaterializeCSS.com
  */
+ html{
+   font-family: abel;
+ }
 .navBtnCol{
    background-color: #26a69a;
 }
