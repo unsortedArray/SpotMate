@@ -123,8 +123,6 @@ function insertIntoTask(taskObject,email){
     db_ref=database.ref('tasks/'+email).push().key;
     database.ref('tasks/'+email+"/"+db_ref).set(taskObject).then(function(){
         console.log('inserted task');
-
-
     }).catch(function(error){
         console.log(error);
     });
