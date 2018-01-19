@@ -94,20 +94,6 @@ function addFirstTimeUser(){
 
 function addTasks()
 {
-<<<<<<< HEAD
-    var task_name=$('#task_name').val();
-    var description=$('#description').val();
-    var location=$('#location').val();
-    var range=$('#range').val();
-    //get email of current user somehow
-    var email=firebase.auth().currentUser.email;
-    var new_email = email.substring(0,email.lastIndexOf("@"))
-    new_email = new_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
-    console.log(new_email);
-    insertIntoDatabase(task_name, description,location,range,new_email);
-    print_latest_task(task_name , db_ref);
-=======
-    
     var check=taskValidity();
     if(check==1){
         var task_name=$('#task_name').val();
@@ -121,11 +107,11 @@ function addTasks()
         new_email = new_email.replace(/[&\/\\#,+()$~%.'":*?<>{}@]/g, '');
         console.log(new_email);
         insertIntoDatabase(task_name, description,location,range,new_email);
+        print_latest_task(task_name , db_ref);
     }else{
         //toast for task not inserted
          Materialize.toast('Task not inserted', 4000);
     }
-    
 }
 function taskValidity(){
     var check=1;
@@ -151,7 +137,7 @@ function taskValidity(){
     }
     return check;
 
->>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
+// >>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
 }
 function insertIntoDatabase(task_name, description,location,range,email)
 {
@@ -171,11 +157,11 @@ function insertIntoTask(taskObject,email){
     db_ref=database.ref('tasks/'+email).push().key;
     database.ref('tasks/'+email+"/"+db_ref).set(taskObject).then(function(){
         console.log('inserted task');
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
         //toast for task inserted
          Materialize.toast('Task inserted successfully!!', 4000)
->>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
+// >>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
     }).catch(function(error){
         console.log(error);
         Materialize.toast('Task not inserted due to error!!', 4000)
@@ -222,7 +208,7 @@ function addFriend(){
     else{
         Materialize.toast("Friend not inserted",4000);
     }
-    
+
 }
 function friendValidity(){
     var check=1;
@@ -292,7 +278,7 @@ function printTable(object,key)
             <td>\
               <a class="friends-name" href="#">'+object.val().task_name+'</a></td>\
               <td>\
-                <button class="tooltipped btn-floating btn-large waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
+                <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
               </td>\
             </tr>';
     }

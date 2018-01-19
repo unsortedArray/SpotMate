@@ -2146,7 +2146,7 @@
  *    without disabling user zoom.
  */
 html {
-  font-family: abel;
+  font-family: sans-serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -4920,7 +4920,7 @@ small {
   position: fixed ;
   z-index: 10000;
   left:70%;
- 
+
 }
 
 @media only screen and (max-width: 600px) {
