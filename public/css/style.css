@@ -9,7 +9,7 @@
    background-color: #EE6E73;
 }
 body, html {
-   background: #ffebee;
+   /* background: #ffebee; */
    /* background-image: url("../images/mainPage/back.jpg"); */
   overflow-x: hidden;
 }

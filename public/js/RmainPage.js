@@ -274,7 +274,7 @@ function print_latest_task(task_name,key)
   {
       data += '<tr id = "'+key+'">\
           <td>\
-            <a class="friends-name black-text" href="#">'+task_name+'</a></td>\
+            <a class="friends-name black-text" onclick="displayTaskDetails(\''+key+'\')">'+task_name+'</a></td>\
             <td>\
               <button class="tooltipped btn-floating btn-medium waves-effect waves-light red" onclick = "removeTask(\''+key+'\')" ><i class="medium material-icons">clear</i></button>\
             </td>\
@@ -293,7 +293,7 @@ function printTable(object,key)
         //console.log(email)
         data += '<tr id = "'+key+'">\
             <td>\
-              <a class="friends-name black-text" href="#">'+object.val().task_name+'</a></td>\
+              <a class="friends-name black-text" onclick="displayTaskDetails(\''+key+'\')">'+object.val().task_name+'</a></td>\
               <td>\
                 <button class="tooltipped btn-floating btn-medium waves-effect waves-light red" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
               </td>\
@@ -306,6 +306,16 @@ function printTable(object,key)
     // $('.preloader-background').fadeOut('slow');
     // $('.preloader-wrapper')
     //   .fadeOut();
+}
+function displayTaskDetails(key)
+{
+  firebase.database().ref('tasks/' + email + '/' + key).once('value',function(snap){
+    document.getElementById('NameDetail').innerHTML = snap.val().task_name;
+    document.getElementById('DescriptionDetail').innerHTML = snap.val().description;
+    document.getElementById('LocationDetail').innerHTML = snap.val().location;
+    document.getElementById('RangeDetail').innerHTML = snap.val().range;
+    $('#modal5').modal('open');
+  });
 }
 function removeTask(key)
 {

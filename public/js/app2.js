@@ -2,14 +2,14 @@ particlesJS('particles-js',
 {
  "particles": {
    "number": {
-     "value": 400,
+     "value": 1000,
      "density": {
        "enable": true,
        "value_area": 800
      }
    },
    "color": {
-     "value": "#008080"
+     "value": "#EE6E73"
    },
    "shape": {
      "type": "circle",
