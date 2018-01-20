@@ -4,7 +4,7 @@ var database = firebase.database();
 var use = [];
 var names = [];
 var email =''
-
+var map = new Object();
 initApp = function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -17,7 +17,9 @@ initApp = function() {
             var phoneNumber = user.phoneNumber;
             var providerData = user.providerData;
             user.getIdToken().then(function(accessToken) {
-
+              var disp = 'Welcome ' + displayName;
+            document.getElementById('zuser').innerHTML = disp;
+            document.getElementById('zuser1').innerHTML = disp;
 
 
                 email = user.email.substring(0,email.lastIndexOf("@"))
@@ -78,7 +80,7 @@ window.addEventListener('load', function() {
 function yourData(data)
 {
   // hashing with keys key to be deleted down
-  // map[data.val().f_email] = data.key;
+   map[data.val().f_email] = data.key;
   // use.push(data.val().f_email);
   pushName(data.val().f_email, printTable);
   //console.log(use);
@@ -107,9 +109,9 @@ function printTable(object,mail)
           //console.log(email);
           data += '<tr id = "'+mail+'">\
             <td>\
-              <a class="friends-name" href="#">'+object.name+'</a></td>\
+              <a class="friends-name black-text" href="#">'+object.Name+'</a></td>\
               <td>\
-                <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeFriend(\''+mail+'\')" ><i class="medium material-icons">clear</i></button>\
+                <button class="tooltipped btn-floating btn-medium waves-effect waves-light red" onclick = "removeFriend(\''+mail+'\')" ><i class="medium material-icons">clear</i></button>\
               </td>\
             </tr>';
         }

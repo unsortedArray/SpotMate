@@ -6,15 +6,29 @@
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
+  <style>
+    .card {
+      width: 40vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .icon {
+      width: 128px;
+    }
+  </style>
  <title>Particles Login Page</title>
 </head>
 <body id="particles-js">
-<div class="col l12 s12">
-  <div class="row">
-    <div class="push-l5 push-s2 col s8 l2 " data-height="2500" id="firebaseui-auth-container" style="position: absolute ; margin-top: 25%"></div>
+  <div class="card">
+    <div class="card-content center">
+      <h3>Sign in</h3>
+      <img src="images/mainPage/icon.png" class="icon"/>
+      <div data-height="2500" id="firebaseui-auth-container"></div>
+    </div>
+  </div>
 
-</div>
 </div>
 <script src = "js/particles.js"></script>
 <script src = "js/app2.js"></script>

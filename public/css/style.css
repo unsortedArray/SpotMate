@@ -6,23 +6,30 @@
  * Made By MaterializeCSS.com
  */
 .navBtnCol{
-   background-color: #26a69a;
+   background-color: #EE6E73;
 }
-html{
-  font-family: Abel;
+body, html {
+   background: #ffebee;
+   /* background-image: url("../images/mainPage/back.jpg"); */
+  overflow-x: hidden;
 }
 #batan
 {
   padding-top: 10%;
 }
  #navCol{
-  background-color: #26A69A;
+  background-color: #EE6E73;
  }
 nav ul a,
 nav .brand-logo {
   color: #444;
 }
-
+#friend_list_cont {
+  background: white !important;
+}
+#task_list_cont {
+  background: white !important;
+}
 p {
   line-height: 2rem;
 }

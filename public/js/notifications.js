@@ -43,11 +43,11 @@ function initMap(stringLoc,obj,childSnap,friend_email,email,range,task_loc){
       if (status !== 'OK') {
         alert('Error was: ' + status);
         dist=null;
-      } 
+      }
       else {
-        console.log("in response"+response);
+        // console.log(task_loc);
         console.log(response.rows[0].elements[0].distance.value);
-        dist=(response.rows[0].elements[0].distance.value)/1000;
+        dist=(response.rows[0].elements[0].distance.value);
         fun(dist,childSnap,task_loc,friend_email,email,range);
       }
   });
@@ -69,7 +69,7 @@ function fun(d,childSnap,task_loc,friend_email,email,range){
     firebase.database().ref('users/'+friend_email).once('value',function(sap){
       var u=sap.val().Name;
       getFriend(friend_email,u,email,task,location);
-      
+
     })
   }
   else{
@@ -90,9 +90,10 @@ function generateNotification(dest_nakli,dest_name,mobile_name,task,location){
     dest_actual=snap.val().actual_email;
     sendMail(dest_actual,dest_name,location,task,mobile_name);
   })
-  
+
 }
 function sendMail(dest_actual,dest_name,location,task,mobile_name){
+  //console.log(location + mobile_name + task);
   emailjs.send("gmail","template_6rzmRF4V",{destination: dest_actual, user_name: dest_name,location:location,task_name:task,friend_name:mobile_name})
   .then(function(response) {
     console.log("SUCCESS. status=%d, text=%s", response.status, response.text);
@@ -109,7 +110,7 @@ function sendMail(dest_actual,dest_name,location,task,mobile_name){
   if (status !== 'OK') {
     alert('Error was: ' + status);
     d=null;
-  } 
+  }
   else {
     console.log(response);
     console.log(response.rows[0].elements[0].distance.text);

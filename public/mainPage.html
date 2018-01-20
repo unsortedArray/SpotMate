@@ -12,41 +12,49 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
-<body background = "images/mainPage2.jpg">
-  <nav id="navCol" role="navigation">
+<body >
+  <nav id="navCol" role="navigation" class="froly">
     <div class="nav-wrapper container">
       <a id="logo-container" href="mainPage.html#navCol" class="brand-logo white-text">SpotMate</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="white-text" href="www.google.com">PROFILE</a></li>
+        <!-- <li><a class="white-text" href="www.google.com">PROFILE</a></li> -->
+        <li><a class="white-text" href='#' id = 'zuser'></a></li>
         <li><a class="white-text" href="friend.html">FRIENDS</a></li>
         <li><a class="white-text" href="mainPage.html#foot">CONTACT US</a></li>
-        <li><a class="white-text" href="#" id="out">SIGN OUT</a></li>
+        <li><a class="white-text" href="#" id="out">LOG OUT</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">PROFILE</a></li>
+        <!-- <li><a href="#">PROFILE</a></li> -->
+        <li><a href='#' id = 'zuser1'></a></li>
         <li><a href="friend.html">FRIENDS</a></li>
         <li><a href="#foot">CONTACT US</a></li>
-
+        <li><a id ="out1">LOG OUT</a></li>
       </ul>
       <a  data-activates="nav-mobile" class="button-collapse" style="color:white"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 
-    <div class="row" id = "batan">
-      <div class="col l6 s12">
-        <div class="row">
-          <div class="btn btn-large push-l8 push-s1 col s10 l3 modal-trigger" href="#modal1" >Add Tasks</div>
-        </div>
-      </div>
-      <div class="col l6 s12">
-      <div class="btn btn-large push-l1 push-s1 col s10 l3 modal-trigger"  href="#modal2">Add Friend</div>
-      </div>
-        </div>
-      </div>
+<div class="tap-target froly white-text" data-activates="add-btn-fixed">
+  <div class="tap-target-content ">
+    <h5>Add friends or Tasks</h5>
+    <p>Press the task icon to add your tasks and the friend icon to add friends</p>
+  </div>
+</div>
+
+<div class="fixed-action-btn horizontal">
+  <a class="btn-floating btn-large red" id="add-btn-fixed">
+    <i class="large material-icons">add</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red modal-trigger" href = "#modal1"><i class="material-icons">border_color</i></a></li>
+    <li><a class="btn-floating yellow darken-1 modal-trigger" href = "#modal2"><i class="material-icons">group_add</i></a></li>
+  </ul>
+</div>
+
     </div>
-    <h1 style = "text-align : center">Task List</h1>
+    <h1 style = "text-align : center; color:black">Task List</h1>
     <div class = "row">
-      <div class = "col offset-s2 s8 z-depth-2">
+      <div class = "col offset-s2 s8 z-depth-2" id="task_list_cont">
         <h5 style = "text-align : center">Your tasks</h5>
         <hr>
           <table class="bordered centered"><thead><tr><th>TASK NAME</th><th>MARK AS DONE</th></tr></thead>
@@ -87,7 +95,7 @@
           </div>
           <div class="">
             <div class="input-field col s12">
-              <input id="range" type="number" class="validate"  min="0" steps="100" required>
+              <input id="range" type="number" class="validate"  min="0" step="100" required>
               <label for="range">Range</label>
             </div>
           </div>
@@ -144,7 +152,7 @@
       <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
-  <footer id="foot" class="page-footer teal">
+  <footer id="foot" class="page-footer froly">
     <div class="container">
       <div class="row">
         <div class="col l6 s6">
@@ -164,7 +172,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-       <a class="black-text text-lighten-3" href="mainPage.html#navCol">SpotMate</a>
+       <a class="white-text text-lighten-3" href="mainPage.html#navCol">SpotMate</a>
       </div>
     </div>
   </footer>
@@ -173,19 +181,20 @@
   <!--  Scripts-->
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-  <script type="text/javascript" src="js/firebaseInit.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-
-  <!-- <script type="text/javascript" src="js/sample.js"></script> -->
-  <script src="js/init_s.js"></script>
-  <!-- <script src="js/mainPage.js"></script> -->
-  <!-- <script type="text/javascript"  src="./js/authenticate.js"></script> -->
-
-  <!-- <script type="text/javascript" src="js/test.js"></script> -->
-   <script src="js/RmainPage.js"></script>
-   <script src="js/notifications.js"></script>
-   <!-- <script src="js/task_print.js"></script> -->
-   <!-- <script type="text/javascript" src="js/sample.js"></script>
-  --> </body>
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script type="text/javascript" src="js/firebaseInit.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/init_s.js"></script>
+     <script src="js/RmainPage.js"></script>
+     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script type="text/javascript">
+        (function(){
+          emailjs.init("user_jfwCYuRkLIMFRtyIDLI7U");
+       })();
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLrMKr46gbli-HEQ_EIXQpoZk4ZrJDzH4">
+      </script>
+     <script src="js/notifications.js"></script>
+    </body>
 </html>

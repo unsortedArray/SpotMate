@@ -7,6 +7,7 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
@@ -18,14 +19,15 @@
       <a id="logo-container" href="mainPage.html" class="brand-logo white-text">SpotMate</a>
        <!-- give link to mainPage -->
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">AboutUs</a></li>
-        <li><a class="waves-effect navBtnCol " id="out">LogOut</a></li>
-        <li><a href ="#">Profile</a></li>
+        <li><a href = '#' id = 'zuser' class="white-text"></a></li>
+        <li><a href="#friend_foot" class="white-text">CONTACT US</a></li>
+        <li><a class="waves-effect navBtnCol white-text" id="out">LOG OUT</a></li>
+
       </ul>
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#friend_foot">AboutUs</a></li>
-        <li><a id="out1">LogOut</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href='#' id = 'zuser1'></a></li>
+        <li><a href="#friend_foot" >CONTACT US</a></li>
+        <li><a id="out1">LOG OUT</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse" style="color:white"><i class="material-icons">menu</i></a>
     </div>
@@ -33,7 +35,7 @@
 
   <h1 style = "text-align : center">Friends</h1>
   <div class = "row">
-    <div class = "col offset-s2 s8 z-depth-2">
+    <div class = "col offset-s2 s8 z-depth-2" id="friend_list_cont">
       <h5 style = "text-align : center">You have added</h5>
       <!--from database  -->
       <!-- person_add for add friend icon -->
@@ -45,7 +47,7 @@
       </div>
 </div>
 
-  <footer id="friend_foot" class="page-footer  footer teal">
+  <footer id="friend_foot" class="page-footer  footer froly">
     <div class="container">
       <div class="row">
         <div class="col l6 s6">

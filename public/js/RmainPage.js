@@ -4,6 +4,8 @@ var email = '';
 var count =0;
 var dbref = '';
 
+ $('.tap-target').tapTarget('open');
+
 initApp = function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -16,6 +18,9 @@ initApp = function() {
             var uid = user.uid;
             var phoneNumber = user.phoneNumber;
             var providerData = user.providerData;
+            var disp = 'Welcome ' + displayName;
+            document.getElementById('zuser').innerHTML = disp;
+            document.getElementById('zuser1').innerHTML = disp;
             user.getIdToken().then(function(accessToken) {
                 addFirstTimeUser();
 
@@ -160,6 +165,10 @@ function insertIntoTask(taskObject,email){
 // <<<<<<< HEAD
 // =======
         //toast for task inserted
+        $('#task_name').val('');
+        $('#description').val('');
+        $('#location').val('');
+        $('#range').val('');
          Materialize.toast('Task inserted successfully!!', 4000)
 // >>>>>>> 4d3ac88bf625f7f5e9f871b599225420cde7fc4a
     }).catch(function(error){
@@ -168,7 +177,6 @@ function insertIntoTask(taskObject,email){
     });
 }
 function addFriend(){
-
     var check=friendValidity();
     if(check==1){
         var email=firebase.auth().currentUser.email;
@@ -190,12 +198,21 @@ function addFriend(){
             var friendObject={
                 f_email:new_fr_email
             }
+            var friendObjectBi={
+              f_email : new_email
+            }
             var db_ref=database.ref('friends/'+new_email).push().key;
+            var db_ref_bi = database.ref('friends/'+new_email).push().key
             database.ref('friends/'+new_email+"/"+db_ref).set(friendObject).then(function(){
             console.log('inserted friend');
             Materialize.toast("Friend Inserted",4000);
             }).catch(function(error){
                 console.log(error);
+            });
+            database.ref('friends/' + new_fr_email + "/" + db_ref_bi).set(friendObjectBi).then(function(){
+              console.log('u inserted as his friend');
+            }).catch(function(error){
+              console.log(error);
             });
         }
         else{
@@ -257,9 +274,9 @@ function print_latest_task(task_name,key)
   {
       data += '<tr id = "'+key+'">\
           <td>\
-            <a class="friends-name" href="#">'+task_name+'</a></td>\
+            <a class="friends-name black-text" href="#">'+task_name+'</a></td>\
             <td>\
-              <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="medium material-icons">clear</i></button>\
+              <button class="tooltipped btn-floating btn-medium waves-effect waves-light red" onclick = "removeTask(\''+key+'\')" ><i class="medium material-icons">clear</i></button>\
             </td>\
           </tr>';
   }
@@ -276,9 +293,9 @@ function printTable(object,key)
         //console.log(email)
         data += '<tr id = "'+key+'">\
             <td>\
-              <a class="friends-name" href="#">'+object.val().task_name+'</a></td>\
+              <a class="friends-name black-text" href="#">'+object.val().task_name+'</a></td>\
               <td>\
-                <button class="tooltipped btn-floating btn-medium waves-effect waves-light teal" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
+                <button class="tooltipped btn-floating btn-medium waves-effect waves-light red" onclick = "removeTask(\''+key+'\')" ><i class="large material-icons">clear</i></button>\
               </td>\
             </tr>';
     }
